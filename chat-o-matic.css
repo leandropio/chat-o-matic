@@ -1,0 +1,114 @@
+/* CSS declarations go here */
+body {
+	text-align: center;
+	font-family: sans-serif;
+	margin: 0px;
+}
+header {
+	position: fixed;
+	width: 100%;
+	font-size: 2em;
+	color: white;
+	background-color: red;
+}
+
+.login {
+	position: absolute;
+	left: 15px;
+	top: 15px;
+	font-size: 13px;
+}
+
+.title {
+	width: 100%;
+	padding: 20px;
+}
+
+.sub-header {
+	width: 100%;
+	background-color: lightblue;
+}
+
+.sub-header > div {
+	width: 32%;
+	padding: 10px 0px;
+	font-size: 16px;
+	display: inline-block;
+}
+
+.btn {
+	cursor: pointer;
+	border: 2px solid transparent;
+}
+.btn:hover {
+	border: 2px solid white;
+}
+
+
+.view-content { 
+	padding-top: 200px;
+	padding-bottom: 150px;
+	overflow: auto;
+}
+
+
+
+footer {
+	position: fixed;
+	width: 100%;
+	height: 140px;
+	bottom: 0px;
+	background-color: red;
+
+}
+
+footer input{
+	margin-top: 15px;
+	height: 90px;
+	width: 90%;
+	font-size: 1.3em;
+	padding: 20px 20px 0px;
+}
+
+.line {
+	margin: 5px 0;
+	width: 100%;
+	padding: 15px 0;
+	/*background-color: lightgray;*/
+	border: 2px solid transparent;
+}
+
+.line:hover { 
+border: 2px solid gray;
+}
+
+.line.owner{
+	/*background-color: limegreen;*/
+}
+
+.line * {
+	display: inline-block;
+}
+
+.line .head {
+	text-align: right;
+	width: 25%;
+	margin-right: 5%;
+	color: gray;
+}
+
+.line .bubble {
+	text-align: left;
+	width: 60%;
+}
+
+.line.owner .bubble {
+	text-align: right;
+}
+
+.line .delete {
+	float: right;
+	margin: 0 20px;
+	padding: 5px;
+	font-size: 17px;
+}

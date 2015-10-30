@@ -1,0 +1,147 @@
+<head>
+	<title>chat-o-matic</title>
+</head>
+
+<body>
+	<header>
+		<div class="login">{{> loginButtons}} </div>
+		<div class="title">chat-o-matic</div>
+		
+		<div class="sub-header">
+
+			{{#if currentUser }} 
+
+			{{#if messageState }}
+			{{> messagesMenu}}
+			{{/if}}	
+
+			{{#if channelState }}
+			{{> channelsMenu }}
+			{{/if}}	
+
+			{{/if}}
+			
+
+		</div>
+
+	</header>
+
+	<div class="view-content">
+
+		{{#if currentUser }} 
+		
+		{{#if messageState }}
+		{{> messagesView }}
+		{{/if}}	
+
+
+		{{#if channelState }}
+		{{> channelsView }}
+		{{/if}}	
+		
+		{{/if}}
+
+
+
+	</div>
+
+	<footer>
+
+		{{#if currentUser }} 
+		{{#if messageState }}
+		{{> messagesFooter }}
+		{{/if}}	
+
+		{{#if channelState }}
+		{{> channelsFooter }}
+		{{/if}}	
+		{{else}} 
+		<br>
+		<div style="color:#FFF; font-size: 20px;">You must be logged in to participate in the chat party</div>
+		{{/if}}
+		
+		
+
+	</footer>
+
+	
+</body>
+
+
+<template name="messagesMenu">
+	<div class="text">
+		<div>Current channel: @{{currentChannel}}</div>
+	</div>
+	<div class="choose-channel btn">
+		<div>CHANGE<br>CHANNEL</div>
+	</div>
+	<div class="invite-user btn">
+		<div>INVITE<br>USER</div>
+	</div>	
+</template>
+
+<template name="messagesView">
+	{{#each messages}}
+	<div class="line {{#if isOwner}}owner{{/if}}">
+		<div class="head">
+			<strong>{{#if isOwner}} yo {{else}} {{username}} {{/if}}</strong>
+			<!-- <small>{{createdAt}}</small> -->
+		</div>
+		<div class="bubble">{{text}}</div>
+		{{#if isOwner}}
+		<button class="delete">&times;</button>
+		{{/if}}
+	</div>
+	{{/each}}
+</template>
+
+<template name="messagesFooter">
+
+	{{#if currentUser }} 
+	<form class="new-message">
+		<input type="text" name="text" placeholder="Type your message here" autocomplete="off">
+	</form>
+	{{else}} 
+	<br>
+	<div style="color:#FFF; font-size: 20px;">You must be logged in to participate in the chat party</div>
+	{{/if}}
+	
+	
+
+</template>
+
+
+
+
+
+<template name="channelsMenu">
+	<div class="">
+		<div></div>
+	</div>
+	<div class="text">
+		<div>CHOOSE<br>A<br>CHANNEL</div>
+	</div>
+	<div class="btn go-back">
+		<div>GO BACK</div>
+	</div>	
+</template>
+
+<template name="channelsView">
+	
+	{{#each channels }}
+	<div class="line btn">
+		<strong>@{{ text}}</strong>
+		{{#if isOwner}}
+		<button class="delete">&times;</button>
+		{{/if}}
+	</div>
+	{{/each}}
+	
+</template>
+
+<template name="channelsFooter">	
+	<form class="new-channel">
+		<input type="text" name="text" placeholder="Type a new channel name here and then hit enter to create it" autocomplete="off">
+	</form>
+</template>
+
